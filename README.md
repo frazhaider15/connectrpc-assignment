@@ -19,3 +19,5 @@ then replace the sample env credentials wit your credentials.
 go run main.go
 
 this will run the otp service.
+
+Video Link for submission: https://app.usebubbles.com/iTLfpZgvmX44yA7cvPLyHZ

@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package authproto.v1;
+
+option go_package = "github.com/auth/gen/authproto/v1;authprotov1";
+
+message SignupRequest {
+  string name = 1;
+  string phone = 2;
+}
+
+message VerifyPhoneRequest {
+  string otp = 1;
+  string phone = 2;
+}
+
+message LoginWithPhoneNumberRequest {
+  string phone = 1;
+}
+
+message ValidatePhoneNumberLoginRequest {
+  string phone = 1;
+  string otp = 2;
+}
+
+message GetProfileRequest {
+  string phone = 1;
+}
+
+message Response {
+  string message = 1;
+}
+
+message GetProfileResponse {
+  string name = 1;
+  string phone = 2;
+  bool phone_verified=3;
+}
+
+service AuthService {
+  rpc SignupWithPhoneNumber(SignupRequest) returns (Response) {}
+  rpc VerifyPhoneNumber(VerifyPhoneRequest) returns (Response) {}
+  rpc LoginWithPhoneNumber(LoginWithPhoneNumberRequest) returns (Response) {}
+  rpc ValidatePhoneNumberLogin(ValidatePhoneNumberLoginRequest) returns (Response) {}
+  rpc GetProfile(GetProfileRequest) returns (GetProfileResponse) {}
+}

@@ -1,0 +1,4 @@
+genrate-protobuf:
+	@buf generate
+lint-protobuf:
+	@buf lint	
